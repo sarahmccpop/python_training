@@ -22,3 +22,11 @@ def alphabet_position(text):
 print(alphabet_position(myString))
 print(alphabet_position(myString2))
 print(alphabet_position(myString3))
+
+# version 2 - released when submitted
+def alphabet_position2(text):
+    return ' '.join(str(ord(c) - 96) for c in text.lower() if c.isalpha())
+# reading on what this is and why it works - https://stackoverflow.com/questions/4528982/convert-alphabet-letters-to-number-in-python/4528997    
+print(alphabet_position2(myString))
+print(alphabet_position2(myString2))
+print(alphabet_position2(myString3))
