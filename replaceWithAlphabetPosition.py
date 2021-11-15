@@ -27,6 +27,9 @@ print(alphabet_position(myString3))
 def alphabet_position2(text):
     return ' '.join(str(ord(c) - 96) for c in text.lower() if c.isalpha())
 # reading on what this is and why it works - https://stackoverflow.com/questions/4528982/convert-alphabet-letters-to-number-in-python/4528997    
+# ord - accepts a string of length 1 as an argument and returns the unicode code point representation of the passed argument. For example ord('B') returns 66 which is a unicode code point value of character ‘B’. - https://beginnersbook.com/2019/03/python-ord-function/
+# isalpha - used to check if a character is an alphabetic letter - returns true or false - https://www.w3schools.com/python/ref_string_isalpha.asp
+# for every character (c) in a string (text CONVERTED to lower), if the character is alphabetic, find the ord of it and minus 96 from it. Parse that number to a string and join it to a string with a ' ' space in between. Return that 
 print(alphabet_position2(myString))
 print(alphabet_position2(myString2))
 print(alphabet_position2(myString3))
