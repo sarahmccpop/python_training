@@ -31,5 +31,7 @@ def is_square(n):
 print(is_square(24))
 
 print(is_square(9))
-print(is_square(49))
-print(is_square(-49))
+print(is_square(49)
+)
+print(is_square(6.7))
+#print(is_square(-49))
