@@ -1,5 +1,7 @@
 # https://pynative.com/python-classes-and-objects/
 
+# Class names in UpperCaseCamelCase convention
+
 
 class Student:
     # class variables
