@@ -56,29 +56,29 @@ def find_even_index(arr):
         return loop_number
 
 
-# print(find_even_index([1, 2, 3, 4, 5]))
-# print(find_even_index([1, 2, 3, 4, 5, 4, 3, 2, 1]))
+# # print(find_even_index([1, 2, 3, 4, 5]))
+# # print(find_even_index([1, 2, 3, 4, 5, 4, 3, 2, 1]))
 
-# Let's say you are given the array {1,2,3,4,3,2,1}:
-# Your function will return the index 3, because at the 3rd position of the array,
-# the sum of left side of the index ({1,2,3}) and the sum of the right side of the index ({3,2,1}) both equal 6.
-print(find_even_index([1, 2, 3, 4, 3, 2, 1]))
+# # Let's say you are given the array {1,2,3,4,3,2,1}:
+# # Your function will return the index 3, because at the 3rd position of the array,
+# # the sum of left side of the index ({1,2,3}) and the sum of the right side of the index ({3,2,1}) both equal 6.
+# print(find_even_index([1, 2, 3, 4, 3, 2, 1]))
 
-# Let's look at another one.
-# You are given the array {1,100,50,-51,1,1}:
-# Your function will return the index 1, because at the 1st position of the array, the sum of left side of the index
-# ({1}) and the sum of the right side of the index ({50,-51,1,1}) both equal 1.
-print(find_even_index([1, 100, 50, -51, 1, 1]))  # should return 1
+# # Let's look at another one.
+# # You are given the array {1,100,50,-51,1,1}:
+# # Your function will return the index 1, because at the 1st position of the array, the sum of left side of the index
+# # ({1}) and the sum of the right side of the index ({50,-51,1,1}) both equal 1.
+# print(find_even_index([1, 100, 50, -51, 1, 1]))  # should return 1
 
-# Last one:
-# You are given the array {20,10,-80,10,10,15,35}
-# At index 0 the left side is {}
-# The right side is {10,-80,10,10,15,35}
-# They both are equal to 0 when added. (Empty arrays are equal to 0 in this problem)
-# Index 0 is the place where the left side and right side are equal.
-print(find_even_index([20, 10, -80, 10, 10, 15, 35]))  # should return 0
-print(find_even_index([1, 2, 3, 4, 3, 2, 1]))  # should return 3
-print(find_even_index([20, 10, 30, 10, 10, 15, 35]))  # should return index 3
+# # Last one:
+# # You are given the array {20,10,-80,10,10,15,35}
+# # At index 0 the left side is {}
+# # The right side is {10,-80,10,10,15,35}
+# # They both are equal to 0 when added. (Empty arrays are equal to 0 in this problem)
+# # Index 0 is the place where the left side and right side are equal.
+# print(find_even_index([20, 10, -80, 10, 10, 15, 35]))  # should return 0
+# print(find_even_index([1, 2, 3, 4, 3, 2, 1]))  # should return 3
+# print(find_even_index([20, 10, 30, 10, 10, 15, 35]))  # should return index 3
 
 # my tidied up version once working. This passes too
 def find_even_index2(arr):
@@ -93,8 +93,30 @@ def find_even_index2(arr):
         return -1
 
 
-print(find_even_index2([1, 2, 3, 4, 3, 2, 1]))
-print(find_even_index2([1, 100, 50, -51, 1, 1]))  # should return 1
-print(find_even_index2([20, 10, -80, 10, 10, 15, 35]))  # should return 0
-print(find_even_index2([1, 2, 3, 4, 3, 2, 1]))  # should return 3
-print(find_even_index2([20, 10, 30, 10, 10, 15, 35]))  # should return index 3
+# print(find_even_index2([1, 2, 3, 4, 3, 2, 1]))
+# print(find_even_index2([1, 100, 50, -51, 1, 1]))  # should return 1
+# print(find_even_index2([20, 10, -80, 10, 10, 15, 35]))  # should return 0
+# print(find_even_index2([1, 2, 3, 4, 3, 2, 1]))  # should return 3
+# print(find_even_index2([20, 10, 30, 10, 10, 15, 35]))  # should return index 3
+
+# understanding another's answer - shorter code
+def find_even_index3(arr):
+    # print(
+    #     range(
+    #         len(arr)
+    #     )  # using range on len gives a range(0, length-of-array) so is another way of creating a counter
+    # )
+    for i in range(len(arr)):  # for each counter
+        # sum arrays here by accessing counter as index
+        if sum(arr[:i]) == sum(arr[i + 1 :]):  # if left_num == right_num
+            return i
+    return (
+        -1
+    )  # return is within for loop because it will return this if the loop is completed and therefore no balance is found
+
+
+print(find_even_index3([1, 2, 3, 4, 3, 2, 1]))
+print(find_even_index3([1, 100, 50, -51, 1, 1]))  # should return 1
+print(find_even_index3([20, 10, -80, 10, 10, 15, 35]))  # should return 0
+print(find_even_index3([1, 2, 3, 4, 3, 2, 1]))  # should return 3
+print(find_even_index3([20, 10, 30, 10, 10, 15, 35]))  # should return index 3
