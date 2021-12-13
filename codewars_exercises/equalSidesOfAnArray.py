@@ -79,3 +79,22 @@ print(find_even_index([1, 100, 50, -51, 1, 1]))  # should return 1
 print(find_even_index([20, 10, -80, 10, 10, 15, 35]))  # should return 0
 print(find_even_index([1, 2, 3, 4, 3, 2, 1]))  # should return 3
 print(find_even_index([20, 10, 30, 10, 10, 15, 35]))  # should return index 3
+
+# my tidied up version once working. This passes too
+def find_even_index2(arr):
+    loop_number = 0
+    for number in arr:
+        right_sum = sum(arr[(loop_number + 1) :])
+        left_sum = sum(arr[:loop_number])
+        if left_sum == right_sum:
+            return loop_number
+        loop_number = loop_number + 1
+    if right_sum != left_sum:
+        return -1
+
+
+print(find_even_index2([1, 2, 3, 4, 3, 2, 1]))
+print(find_even_index2([1, 100, 50, -51, 1, 1]))  # should return 1
+print(find_even_index2([20, 10, -80, 10, 10, 15, 35]))  # should return 0
+print(find_even_index2([1, 2, 3, 4, 3, 2, 1]))  # should return 3
+print(find_even_index2([20, 10, 30, 10, 10, 15, 35]))  # should return index 3
