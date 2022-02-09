@@ -17,7 +17,6 @@ square_sum([2, 3, 2])
 
 # one liner
 def square_sum2(numbers):
-
     return sum(num ** 2 for num in numbers)
 
 
