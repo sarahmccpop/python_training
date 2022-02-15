@@ -54,14 +54,17 @@ def make_readable(seconds):
 # print("59 seconds", make_readable(59))
 # print("7271", make_readable(7271))
 
+# this is number 1 answer revealed
+# divmod - The divmod() method in python takes two numbers and returns a pair of numbers consisting of their quotient and remainder.
+# https://www.geeksforgeeks.org/divmod-python-application/#:~:text=The%20divmod()%20method%20in,of%20their%20quotient%20and%20remainder.&text=Explanation%3A%20The%20divmod()%20method,is%20treated%20as%20the%20denominator.
+def make_readable_n1(seconds):
+    m, s = divmod(seconds, 60)
+    h, m = divmod(m, 60)
+    return "%02d:%02d:%02d" % (h, m, s)
 
-# def make_readable(sec):
-#     m, s = divmod(sec, 60)
-#     h, m = divmod(m, 60)
-#     print(m, s)
-#     print("m", m)
-#     print("h", h)
-#     return f"{h:02d}:{m:02d}:{s:02d}"
 
+largest_divider, remainder = divmod(90, 4)
+print("expecting 22:", largest_divider)
+print("Expecting 2:", remainder)
 
-print("60", make_readable(60))
+print("60", make_readable_n1(60))
